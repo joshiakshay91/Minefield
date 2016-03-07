@@ -84,3 +84,18 @@ TEST(FieldTest, outBoundSafeY)
 	}
 	ASSERT_TRUE(flag);
 }
+
+//when y is -vely out of bound for isSafe i.e y<0 condi
+TEST(FieldTest, outBoundNegY)
+{
+	bool flag=false;
+	Field minefield;
+	minefield.placeMine(4,5);
+	try{
+		minefield.isSafe(4,-9);
+	}catch(...)
+	{
+		flag=true;
+	}
+	ASSERT_TRUE(flag);
+}
