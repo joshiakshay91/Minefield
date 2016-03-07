@@ -72,5 +72,39 @@ FieldType Field::get(int x, int y)
 **/
 void Field::revealAdjacent(int x, int y)
 {
-	//TODO: Complete this function, revealAdjacent(int,int)
+  if(x < 0 || x >= FIELD_DIMENSION || y < 0 || y >= FIELD_DIMENSION)
+ 	{
+  	throw "tried revealing Out of bounds";
+ 	}
+  else
+  {
+    if((y-1)>=0)// to check that it is not on
+    {                           //left most colomn
+      if(_map[x][y-1] == EMPTY_HIDDEN)
+      {
+        _map[x][y-1] = EMPTY_SHOWN;
+      }
+    }
+    if((y+1)<FIELD_DIMENSION) //not leaving upper bounds
+    {
+      if(_map[x][y+1] == EMPTY_HIDDEN)
+      {
+        _map[x][y+1] = EMPTY_SHOWN;
+      }
+    }
+    if((x+1)<FIELD_DIMENSION) //not leaving upper bounds
+    {
+      if(_map[x+1][y] == EMPTY_HIDDEN)
+      {
+        _map[x+1][y] = EMPTY_SHOWN;
+      }
+    }
+    if((x-1)>=0) //to check that it is not on
+    {                           //first row
+      if(_map[x-1][y] == EMPTY_HIDDEN)
+      {
+        _map[x-1][y] = EMPTY_SHOWN;
+      }
+    }
+  }
 }
