@@ -39,7 +39,7 @@ TEST(FieldTest, placeMineNOBOOM)
 	ASSERT_TRUE(minefield.isSafe(5,5));
 }
 
-//when x is positively out of bound for isSafe i.e x>9
+//when x is positively out of bound for isSafe i.e x>9 condi
 TEST(FieldTest, outBoundSafeX)
 {
 	bool flag=false;
@@ -53,5 +53,34 @@ TEST(FieldTest, outBoundSafeX)
 		flag=true;
 	}
 	ASSERT_TRUE(flag);
+}
 
+//when x is -vely out of bound for isSafe i.e x<0 condi
+TEST(FieldTest, outBoundNegX)
+{
+	bool flag=false;
+	Field minefield;
+	minefield.placeMine(4,5);
+	try{
+		minefield.isSafe(-9,5); //passing a negative value
+	}catch(...)//expecting a throw from function
+	{
+		flag=true;
+	}
+	ASSERT_TRUE(flag);
+}
+
+//when y is positively out of bound for isSafe i.e y>9 condi
+TEST(FieldTest, outBoundSafeY)
+{
+	bool flag=false;
+	Field minefield;
+	minefield.placeMine(4,5);
+	try{
+		minefield.isSafe(4,99);//parameters passed are out of bound
+	}catch(...)//expecting a throw from function
+	{
+		flag=true;
+	}
+	ASSERT_TRUE(flag);
 }
