@@ -117,3 +117,22 @@ TEST(FieldTest, SidesXdown)
   minefield.revealAdjacent(4,4);
   ASSERT_EQ(EMPTY_SHOWN,minefield.get(5,4));
 }
+
+TEST(FieldTest, SidesYleft)
+{
+  Field minefield; //default const everything to be EMPTY_HIDDEN
+  minefield.revealAdjacent(4,4);
+  ASSERT_EQ(EMPTY_SHOWN,minefield.get(4,3));
+}
+
+
+TEST(FieldTest, SidesYright)
+{
+  Field minefield; //default const everything to be EMPTY_HIDDEN
+  minefield.revealAdjacent(4,4);
+  ASSERT_EQ(EMPTY_SHOWN,minefield.get(4,5));
+}
+
+////////////////////////
+//all four sides tested
+/////////////////////////
