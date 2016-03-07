@@ -38,3 +38,20 @@ TEST(FieldTest, placeMineNOBOOM)
 	minefield.placeMine(4,5); //expecting return of true bool
 	ASSERT_TRUE(minefield.isSafe(5,5));
 }
+
+//when x is positively out of bound for isSafe i.e x>9
+TEST(FieldTest, outBoundSafeX)
+{
+	bool flag=false;
+	Field minefield;
+
+	minefield.placeMine(4,5);
+	try{
+		minefield.isSafe(99,5); //parameters passed are out of bound
+	}catch(...) //expecting a throw from function
+	{
+		flag=true;
+	}
+	ASSERT_TRUE(flag);
+
+}
