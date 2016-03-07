@@ -92,8 +92,8 @@ TEST(FieldTest, outBoundNegY)
 	Field minefield;
 	minefield.placeMine(4,5);
 	try{
-		minefield.isSafe(4,-9);
-	}catch(...)
+		minefield.isSafe(4,-9);//passing a negative value
+	}catch(...)//expecting a throw from function
 	{
 		flag=true;
 	}
