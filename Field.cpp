@@ -51,8 +51,18 @@ FieldType Field::get(int x, int y)
  bool Field::isSafe(int x, int y)
  {
  	//T Complete this function, isSafe(int,int)
-  
- 	return true;
+  if(x<0||x>=FIELD_DIMENSION||y<0||y>=FIELD_DIMENSION)
+    {
+      throw "location illegal";
+    }
+    else
+    {
+      if(_map[x][y] == MINE_HIDDEN) //checks for mine
+      {
+        return false; //mine present
+      }
+    }
+   	  return true;
  }
 
 /**
