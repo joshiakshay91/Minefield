@@ -99,3 +99,14 @@ TEST(FieldTest, outBoundNegY)
 	}
 	ASSERT_TRUE(flag);
 }
+
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+TEST(FieldTest, SidesXup)
+{
+  Field minefield; //default const everything to be EMPTY_HIDDEN
+  minefield.revealAdjacent(4,4);
+  ASSERT_EQ(EMPTY_SHOWN,minefield.get(3,4));
+}
