@@ -110,3 +110,10 @@ TEST(FieldTest, SidesXup)
   minefield.revealAdjacent(4,4);
   ASSERT_EQ(EMPTY_SHOWN,minefield.get(3,4));
 }
+
+TEST(FieldTest, SidesXdown)
+{
+  Field minefield; //default const everything to be EMPTY_HIDDEN
+  minefield.revealAdjacent(4,4);
+  ASSERT_EQ(EMPTY_SHOWN,minefield.get(5,4));
+}
