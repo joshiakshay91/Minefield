@@ -30,3 +30,11 @@ TEST(FieldTest, placeMineBOOM)
 	minefield.placeMine(4,5);  //expecting a mine over here
 	ASSERT_FALSE(minefield.isSafe(4,5));
 }
+
+//when expecting no mine so true
+TEST(FieldTest, placeMineNOBOOM)
+{
+	Field minefield;
+	minefield.placeMine(4,5); //expecting return of true bool
+	ASSERT_TRUE(minefield.isSafe(5,5));
+}
