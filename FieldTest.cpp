@@ -136,3 +136,18 @@ TEST(FieldTest, SidesYright)
 ////////////////////////
 //all four sides tested
 /////////////////////////
+
+
+//boundry Sides
+TEST(FieldTest, SidesOut)
+{
+  bool flag=false;
+  Field minefield; //default const everything to be EMPTY_HIDDEN
+  try{              //x going out of bound
+    minefield.revealAdjacent(99,0);
+  }catch(...)//expecting that 
+  {
+    flag=true;
+  }
+  ASSERT_TRUE(flag);
+}
