@@ -42,17 +42,10 @@ TEST(FieldTest, isSafeBoom)
 TEST(FieldTest, isSafeOutOfBounds)
 {
 	Field minefield;
-	bool except = false;
-	try
-	{
-		bool safe;
-		safe = minefield.isSafe(-1,11);
-	}
-	catch(...)
-	{
-		except = true;
-	}
-	ASSERT_TRUE(except);
+
+	bool safe;
+	safe = minefield.isSafe(-1,11);
+	ASSERT_FALSE(safe);
 }
 
 TEST(FieldTest, revealAdjacentEmptyAllShown)
