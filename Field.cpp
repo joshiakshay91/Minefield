@@ -79,3 +79,11 @@ void Field::revealAdjacent(int x, int y)
 		revealAdjacent(x,y+1);
 	}
 }
+
+
+//
+void Field::placeMineShown(int x, int y)
+{
+  if( inBounds(x,y) )
+   _map[x][y] = MINE_SHOWN;
+}

@@ -73,3 +73,14 @@ TEST(FieldTest, revealAdjacentFirstRowEmpty)
 	ASSERT_EQ( EMPTY_HIDDEN, minefield.get(0,0) );
 	ASSERT_EQ( MINE_HIDDEN, minefield.get(1,0) );
 }
+
+TEST(FieldTest, revealAdjacentMINESHOWN)
+{
+	Field minefield;
+
+	for(int y=0; y<10; y++)	minefield.placeMineShown(1,y);
+
+	minefield.revealAdjacent(1,0);
+	ASSERT_EQ( EMPTY_HIDDEN, minefield.get(0,0) );
+	ASSERT_EQ( MINE_SHOWN, minefield.get(1,0) );
+}

@@ -4,7 +4,7 @@
 
 # Points to the root of Google Test. Change it to reflect where your
 # clone of the googletest repo is
-GTEST_DIR = /usr/local/include/gtest/googletest/googletest
+GTEST_DIR = ./googletest
 
 # Flags passed to the preprocessor and compiler
 CPPFLAGS += --coverage -isystem $(GTEST_DIR)/include
@@ -19,7 +19,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 # House-keeping build targets.
 
-all : $(TESTS)
+all : $(TESTS);./FieldTest ;./FieldTest
 
 clean :
 	rm -f $(TESTS) gtest.a gtest_main.a *.o *.gcov *.gcda *.gcno
